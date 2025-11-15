@@ -1,0 +1,89 @@
+datasource db {
+    url      = env("DATABASE_URL")
+    provider = "postgresql"
+}
+
+generator client {
+    provider = "prisma-client-js"
+    output   = "src/generated/prisma"
+}
+
+enum ROLE {
+    JUNINHO
+    MENTOR
+}
+
+enum AGE {
+    UNDERAGE
+    ADULT
+}
+
+enum GENDER {
+    MALE
+    FEMALE
+    OTHER
+}
+
+enum STATUS {
+    PENDING
+    ACCEPTED
+    REFUSED
+}
+
+model User {
+    id        Int      @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    email     String   @unique
+    name      String
+    lastname  String
+    password  String
+    role      ROLE
+
+    juninhos Juninho[]
+    mentors Mentor[]
+}
+
+model Juninho {
+    id        Int      @id @default(autoincrement())
+    userId    Int      @unique
+    desc      String?
+    age       AGE
+    gender    GENDER
+    subjectTags String[]
+    user      User @relation(fields: [userId], references: [id])
+}
+
+model Mentor {
+    id        Int      @id @default(autoincrement())
+    userId    Int      @unique
+    desc      String?
+    expYears  Int
+    gender    GENDER
+    subjectTags String[]
+    disponibility String[]
+    juninhosAmount  Int
+    user      User @relation(fields: [userId], references: [id])
+}
+
+model Match {
+    id        Int      @id @default(autoincrement())
+    juninhoId Int
+    mentorId  Int
+    status    STATUS
+}
+
+model Message {
+    id        Int      @id @default(autoincrement())
+    senderId  Int
+    receiverId Int
+    content   String
+    timestamp DateTime @default(now())
+}
+
+model Journal {
+    id        Int      @id @default(autoincrement())
+    userId    Int
+    progressEntry     String
+    todoEntry         String
+    timestamp DateTime @default(now())
+}

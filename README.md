@@ -6,6 +6,7 @@
   - [Índice](#índice)
   - [Descrição do Projeto](#descrição-do-projeto)
   - [Status do Projeto](#status-do-projeto)
+    - [Progresso Atual](#progresso-atual)
   - [Funcionalidades](#funcionalidades)
   - [Tecnologias Utilizadas](#tecnologias-utilizadas)
   - [Licença](#licença)
@@ -24,7 +25,33 @@ Essa API (sendo consumida por uma aplicação) vem para resolver esse problema, 
 
 ## Status do Projeto
 
-O projeto AcompanheUmJuninho API encontra-se atualmente na fase de planejamento e design da arquitetura.
+🚧 **Em Desenvolvimento Ativo**
+
+O projeto AcompanheUmJuninho API está atualmente em fase de desenvolvimento, com foco no módulo de **Usuário e Autenticação**.
+
+### Progresso Atual
+
+**✅ Concluído:**
+
+- Configuração inicial do projeto NestJS
+- Conexão com banco de dados PostgreSQL via Prisma
+- Modelagem completa do banco de dados (schema.prisma)
+- Definição de todas as tabelas e relacionamentos
+
+**🔨 Em Desenvolvimento:**
+
+- Implementação do módulo de Usuário (Repository, Service, Controller)
+- Sistema de autenticação com JWT
+- Hash de senhas com bcrypt
+
+**📋 Próximos Passos:**
+
+- Módulos de Juninho e Mentor
+- Sistema de Matchmaking
+- Hub de Mensagens
+- Diário de Bordo
+
+Para mais detalhes sobre o progresso, consulte [docs/Progresso.md](docs/Progresso.md).
 
 ## Funcionalidades
 
